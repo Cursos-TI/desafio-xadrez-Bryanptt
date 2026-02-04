@@ -1,55 +1,62 @@
 #include <stdio.h>
+// Desafio movimento peças de xadres usando estruturas de repetição
 
-int main() {
+void movertorre(int torre) {
+    
+    if (torre > 0) {
+    printf("Direita\n");
+    movertorre(torre - 1);
+    }      
+}
 
-    // Desafio movimento peças de xadres usando estruturas de repetição
-
-
-    printf("MOVIMENTOS DE XADREZ\n\n");
-    printf("Torre: movimentos horizontais e verticais\n"); // torre cinco movimentos para direita (for)
-
-    for (int t = 0; t < 5; t++) {
-        printf("Direita\n");
+void moverbispo(int bispo) {
+    
+    if (bispo > 0) {
+        do
+        {
+            printf("Cima ");
+            for (int b2 = 0; b2 < 1; b2++) {
+                printf("Direita\n");
+            }
+            bispo--;    
+        } while (bispo > 0);
+    
         
-        }
-
-
-    //////
-
-    printf("\nBispo: movimentos diagonais\n"); // bispo cinco movimentos diagonal direita cima (while)
-    int b = 0;
-
-    while (b < 5) {
-
-        printf("Diagonal direita cima\n");
-        b++;
     }
+}
 
-
-    //////
-
-    printf("\nRainha: movimentos horizontais, verticais e diagonais\n"); // rainha oito movimentos para esquerda (do while)
-
-    int r = 0;
+void moverrainha(int rainha) {
     do
     {
         printf("Esquerda\n");
-        r++;
-    } while (r < 8);
+        rainha--;
+    } while (rainha > 0);
+}
 
-    //////
+int main() {
 
-    printf("\nCavalo: movimentos em L\n"); // cavalo movimentos em L para baixo-esquerda (loops aninhados)
+    printf("Torre: movimentos horizontais e verticais\n"); // torre cinco movimentos para direita (recursao)
+    movertorre(5);
+
+    printf("\nBispo: movimentos diagonais\n"); // bispo cinco movimentos diagonal direita cima (recursao com aninhamento de loops)
+    moverbispo(5);
+
+    printf("\nRainha: movimentos horizontais, verticais e diagonais\n"); // rainha oito movimentos para esquerda (do while)
+    moverrainha(8);
+
+    
+
+    printf("\nCavalo: movimentos em L\n"); // cavalo movimentos em L para cima-direita (loops aninhados)
     int c = 0;
 
-    while (c < 1) {
+    while (c < 1) { 
 
-        for (int c2 = 0; c2 < 2; c2++)
-        {
-            printf("Baixo\n");
+        for (int c2 = 0; c2 < 2; c2++) {
+            printf("Cima\n");
+            ;
         }
         
-     printf("Esquerda\n");
+     printf("Direita\n");
         c++;
     }
 
